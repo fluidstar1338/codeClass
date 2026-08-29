@@ -1,0 +1,428 @@
+/* ==================================================
+   CODECLASS - SIDEBAR PROFESSOR
+   v2: acabamento do modo recolhido
+   ================================================== */
+
+.cc-sidebar {
+  min-height: 100vh;
+
+  background: var(--sidebar-background);
+  border-right: 1px solid var(--sidebar-border);
+
+  color: var(--color-text);
+}
+
+.cc-sidebar-aside {
+  width: 100%;
+  height: 100vh;
+
+  background: var(--sidebar-background);
+}
+
+.cc-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  background: var(--sidebar-background);
+}
+
+
+/* ==================================================
+   HEADER / MARCA
+   ================================================== */
+
+.cc-sidebar-header {
+  display: flex;
+  align-items: center;
+
+  min-height: 73px;
+  padding: 16px !important;
+
+  border-bottom: 1px solid var(--sidebar-border);
+  gap: 0 !important;
+}
+
+.cc-sidebar-brand {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  gap: 12px;
+}
+
+.cc-sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+  color: var(--color-on-primary);
+
+  font-size: 18px;
+  font-weight: 800;
+
+  margin: 0 10px 0 20px;
+}
+
+.cc-sidebar-logo img {
+  display: block;
+
+  width: 60px;
+  height: 60px;
+  
+  object-fit: contain;
+}
+
+.cc-sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.cc-sidebar-brand-text strong {
+  color: var(--color-text);
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cc-sidebar-brand-text span {
+  margin-top: 3px;
+
+  color: var(--color-primary);
+}
+
+
+/* ==================================================
+   CONTEÚDO
+   ================================================== */
+
+.cc-sidebar-content {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 18px 12px;
+}
+
+.cc-sidebar-group-label {
+  display: block;
+
+  margin-bottom: 8px;
+  padding: 0 10px;
+
+  color: var(--sidebar-text-muted);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.cc-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+/* ==================================================
+   BOTÕES DO MENU
+   ================================================== */
+
+.cc-sidebar .cc-sidebar-button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 44px;
+
+  gap: 12px;
+  padding: 10px 12px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+  color: var(--sidebar-text);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.cc-sidebar .cc-sidebar-button:hover {
+  background: var(--sidebar-item-hover);
+  color: var(--color-text);
+}
+
+.cc-sidebar .cc-sidebar-button:active {
+  transform: scale(0.985);
+}
+
+.cc-sidebar .cc-sidebar-button.cc-sidebar-button-active {
+  background: var(--sidebar-item-active);
+  color: var(--sidebar-item-active-text);
+
+  font-weight: 600;
+}
+
+.cc-sidebar .cc-sidebar-button.cc-sidebar-button-active:hover {
+  background: var(--sidebar-item-active);
+  color: var(--sidebar-item-active-text);
+}
+
+.cc-sidebar .cc-sidebar-button-disabled {
+  opacity: 0.62;
+
+  cursor: default;
+}
+
+.cc-sidebar .cc-sidebar-button-disabled:hover {
+  background: transparent;
+  color: var(--sidebar-text);
+}
+
+
+/* ==================================================
+   ÍCONES / TEXTO
+   ================================================== */
+
+.cc-sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 22px;
+  height: 22px;
+
+  color: inherit;
+}
+
+.cc-sidebar-icon svg {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+}
+
+.cc-sidebar-text {
+  flex: 1;
+
+  overflow: hidden;
+
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.cc-sidebar-footer {
+  padding: 12px;
+
+  border-top: 1px solid var(--sidebar-border);
+  background: var(--sidebar-footer-background);
+}
+
+.cc-sidebar-footer-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.cc-sidebar-footer-button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 42px;
+
+  gap: 12px;
+  padding: 9px 12px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+  color: var(--sidebar-text);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.cc-sidebar-footer-button:hover {
+  background: var(--sidebar-item-hover);
+  color: var(--color-text);
+}
+
+.cc-sidebar-footer-button:active {
+  transform: scale(0.985);
+}
+
+
+/* ==================================================
+   FOCO / ACESSIBILIDADE
+   ================================================== */
+
+.cc-sidebar-button:focus-visible,
+.cc-sidebar-footer-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+
+/* ==================================================
+   SCROLLBAR
+   ================================================== */
+
+.cc-sidebar-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cc-sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cc-sidebar-content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: var(--color-border-strong);
+}
+
+
+/* ==================================================
+   MODO RECOLHIDO
+   O PrimeVue 5 aplica data-state="collapsed" no root
+   da Sidebar. Assim não precisamos adivinhar a largura
+   nem usar !important para montar o modo compacto.
+   ================================================== */
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-header {
+  justify-content: center;
+
+  padding-inline: 12px;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-brand {
+  justify-content: center;
+
+  gap: 0;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-brand-text,
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-group-label,
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-text {
+  display: none;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-logo {
+  width: 40px;
+  height: 40px;
+
+  margin-inline: auto;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-content {
+  padding: 18px 8px;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-menu {
+  align-items: center;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-button {
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+
+  margin-inline: auto;
+  padding: 0;
+
+  gap: 0;
+
+  border-radius: 10px;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-footer {
+  padding: 12px 8px;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-footer-actions {
+  align-items: center;
+}
+
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-footer-button {
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+
+  margin-inline: auto;
+  padding: 0;
+
+  gap: 0;
+
+  border-radius: 10px;
+}
+
+
+/* ==================================================
+   TABLET / MOBILE
+   ================================================== */
+
+@media (max-width: 768px) {
+  .cc-sidebar-header {
+    min-height: 68px;
+    padding: 14px;
+  }
+
+  .cc-sidebar-content {
+    padding: 14px 10px;
+  }
+
+  .cc-sidebar[data-state="collapsed"] .cc-sidebar-content {
+    padding-inline: 8px;
+  }
+}
