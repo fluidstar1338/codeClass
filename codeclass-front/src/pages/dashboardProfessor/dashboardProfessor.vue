@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-import Card from 'primevue/card'
 import Button from 'primevue/button'
 
 import SidebarLayout from 'primevue/sidebarlayout'
@@ -9,7 +8,7 @@ import SidebarMain from 'primevue/sidebarmain'
 import SidebarTrigger from 'primevue/sidebartrigger'
 
 import SidebarIcon from '@primeicons/vue/sidebar'
-import UserIcon from '@primeicons/vue/user'
+import BellIcon from '@primeicons/vue/bell'
 
 import SidebarProfessor from '../../components/sidebarProfessor.vue'
 
@@ -27,29 +26,54 @@ onMounted(async () => {
     v-if="dados"
     class="dashboard-layout"
   >
-
     <!-- SIDEBAR -->
     <SidebarProfessor />
 
     <!-- CONTEÚDO DA PÁGINA -->
     <SidebarMain>
-
       <main class="dashboard-content">
 
-        <section class="page-heading">
-          <h1>Dashboard</h1>
+        <section class="dashboard-heading">
 
-          <p>
-            Acompanhe suas salas, alunos e atividades.
-          </p>
+          <div class="dashboard-heading-left">
+
+            <SidebarTrigger
+              class="dashboard-sidebar-trigger"
+              aria-label="Alternar sidebar"
+            >
+              <SidebarIcon :size="22" />
+            </SidebarTrigger>
+
+            <div class="page-heading">
+              <h1>Dashboard</h1>
+
+              <p>
+                Acompanhe suas salas, alunos e atividades.
+              </p>
+            </div>
+
+          </div>
+
+          <Button
+            class="dashboard-notification-button"
+            text
+            rounded
+            aria-label="Notificações"
+          >
+            <BellIcon :size="22" />
+          </Button>
+
         </section>
 
-        <!-- suas sections de indicadores,
-             salas etc. continuam aqui -->
+        <!--
+          Aqui entram depois:
+          - indicadores
+          - salas
+          - próximas atividades
+          - etc.
+        -->
 
       </main>
-
     </SidebarMain>
-
   </SidebarLayout>
 </template>

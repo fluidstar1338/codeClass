@@ -22,7 +22,6 @@
 .cc-sidebar-panel {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 100%;
 
@@ -77,7 +76,7 @@
 
   width: 60px;
   height: 60px;
-  
+
   object-fit: contain;
 }
 
@@ -99,7 +98,7 @@
 .cc-sidebar-brand-text span {
   margin-top: 3px;
 
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 
@@ -168,6 +167,8 @@
     background-color 0.15s ease,
     color 0.15s ease,
     transform 0.15s ease;
+
+  justify-content: flex-start;
 }
 
 .cc-sidebar .cc-sidebar-button:hover {
@@ -228,10 +229,11 @@
 }
 
 .cc-sidebar .cc-sidebar-button .cc-sidebar-menu-icon {
-  width: 26px !important;
-  height: 26px !important;
-  min-width: 26px;
-  min-height: 26px;
+  width: 25px !important;
+  height: 25px !important;
+
+  min-width: 25px;
+  min-height: 25px;
 }
 
 .cc-sidebar-text {
@@ -333,9 +335,6 @@
 
 /* ==================================================
    MODO RECOLHIDO
-   O PrimeVue 5 aplica data-state="collapsed" no root
-   da Sidebar. Assim não precisamos adivinhar a largura
-   nem usar !important para montar o modo compacto.
    ================================================== */
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-header {
@@ -351,9 +350,15 @@
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-brand-text,
-.cc-sidebar[data-state="collapsed"] .cc-sidebar-group-label,
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-text {
   display: none;
+}
+
+/* Mantém o espaço vertical de "NAVEGAÇÃO" para os ícones não subirem. */
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-group-label {
+  visibility: hidden;
+
+  pointer-events: none;
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-logo {
@@ -363,32 +368,46 @@
   margin-inline: auto;
 }
 
+/* Corrige apenas o modo recolhido:
+   - preserva o espaço vertical de "NAVEGAÇÃO"
+   - remove padding lateral que cortava os ícones
+   - centraliza os ícones de 30px na largura estreita da sidebar
+*/
+
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-content {
-  padding: 18px 8px;
+  padding: 18px 0;
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-menu {
   align-items: center;
 }
 
-.cc-sidebar[data-state="collapsed"] .cc-sidebar-button {
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-menu > * {
+  display: flex;
   justify-content: center;
 
-  width: 40px;
-  height: 40px;
-  min-height: 40px;
+  width: 100%;
+}
 
-  margin-inline: auto;
-  padding: 0;
+.cc-sidebar[data-state="collapsed"] .cc-sidebar-button {
+  justify-content: center !important;
+
+  width: 100%;
+  min-height: 50px;
+
+  margin: 0;
+  padding: 10px 0;
 
   gap: 0;
 
-  border-radius: 10px;
+  border-radius: 9px;
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-icon {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-footer {
@@ -396,7 +415,8 @@
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-footer-actions {
-  align-items: center;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .cc-sidebar[data-state="collapsed"] .cc-sidebar-footer-button {
@@ -422,6 +442,7 @@
 @media (max-width: 768px) {
   .cc-sidebar-header {
     min-height: 68px;
+
     padding: 14px;
   }
 
@@ -430,6 +451,6 @@
   }
 
   .cc-sidebar[data-state="collapsed"] .cc-sidebar-content {
-    padding-inline: 8px;
+    padding-inline: 0;
   }
 }
