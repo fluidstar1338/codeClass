@@ -224,7 +224,7 @@ function sair() {
                     <span class="cc-sidebar-icon">
                       <component
                         :is="item.icon"
-                        size="20"
+                        class="cc-sidebar-menu-icon"
                       />
                     </span>
 
