@@ -144,7 +144,6 @@
 .cc-sidebar .cc-sidebar-button {
   display: flex;
   align-items: center;
-
   width: 100%;
   min-height: 44px;
 
@@ -253,7 +252,6 @@
 
 .cc-sidebar-footer {
   padding: 12px;
-
   border-top: 1px solid var(--sidebar-border);
   background: var(--sidebar-footer-background);
 }
@@ -286,7 +284,6 @@
   font-weight: 500;
 
   cursor: pointer;
-
   transition:
     background-color 0.15s ease,
     color 0.15s ease,
@@ -300,6 +297,24 @@
 
 .cc-sidebar-footer-button:active {
   transform: scale(0.985);
+}
+
+
+/* ==================================================
+   CONTROLE RECOLHER / EXPANDIR
+   ================================================== */
+
+.cc-sidebar-collapse-button {
+  margin-bottom: 6px;
+  color: var(--sidebar-text-muted);
+}
+
+.cc-sidebar-collapse-button:hover {
+  color: var(--color-text);
+}
+
+.cc-sidebar-collapse-button .cc-sidebar-icon {
+  transition: transform 0.15s ease;
 }
 
 
@@ -328,7 +343,6 @@
 
 .cc-sidebar-content::-webkit-scrollbar-thumb {
   border-radius: 999px;
-
   background: var(--color-border-strong);
 }
 
