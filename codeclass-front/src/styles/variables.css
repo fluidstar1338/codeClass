@@ -17,7 +17,6 @@
   --cc-black: #000000;
   --cc-white: #ffffff;
 }
-
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -35,18 +34,28 @@
 
   --color-border: #dce3df;
   --color-border-strong: #bdc7c1;
-
   --color-primary: var(--cc-green-500);
   --color-primary-hover: var(--cc-green-600);
   --color-primary-active: var(--cc-green-700);
   --color-primary-soft: var(--cc-green-50);
   --color-on-primary: #07130c;
 
+  /* Bordas de destaque usadas em elementos de marca/ênfase. */
+  --color-primary-border-soft: rgb(0 191 99 / 0.32);
+  --color-primary-border-medium: rgb(0 191 99 / 0.45);
+
+  /* Superfície de destaque editorial, inspirada na landing page. */
+  --color-highlight-surface: #080808;
+  --color-highlight-text: #ffffff;
+  --color-highlight-text-secondary: #b4b4af;
+  --color-highlight-text-muted: #9a9a94;
+  --color-highlight-border: #303030;
+  --color-highlight-grid-line: rgb(255 255 255 / 0.035);
+
   --color-link: #007d42;
   --color-link-hover: #006536;
 
   --header-background: #ffffff;
-
   --sidebar-background: #ffffff;
   --sidebar-border: #e1e7e3;
   --sidebar-text: #37413b;
@@ -60,7 +69,6 @@
   --input-border: #bdc7c1;
   --input-border-focus: var(--cc-green-500);
   --input-placeholder: #8c9690;
-
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
   --shadow-lg: 0 12px 30px rgb(0 0 0 / 0.12);
@@ -79,7 +87,6 @@
   --color-text-secondary: #c2c7c4;
   --color-text-muted: #909791;
   --color-text-disabled: #666d68;
-
   --color-border: #2d3236;
   --color-border-strong: #3b4146;
 
@@ -89,11 +96,21 @@
   --color-primary-soft: #0d2d1c;
   --color-on-primary: #07130c;
 
+  --color-primary-border-soft: rgb(0 191 99 / 0.32);
+  --color-primary-border-medium: rgb(0 191 99 / 0.45);
+
+  /* No dark o destaque sobe um nível em relação ao fundo, em vez de sumir nele. */
+  --color-highlight-surface: #202522;
+  --color-highlight-text: #f4f5f4;
+  --color-highlight-text-secondary: #c2c7c4;
+  --color-highlight-text-muted: #909791;
+  --color-highlight-border: #3b4640;
+  --color-highlight-grid-line: rgb(255 255 255 / 0.045);
+
   --color-link: #35df8a;
   --color-link-hover: #64e9a4;
 
   --header-background: #17191c;
-
   --sidebar-background: #17191c;
   --sidebar-border: #2d3236;
   --sidebar-text: #d0d4d1;
@@ -107,7 +124,6 @@
   --input-border: #3a4045;
   --input-border-focus: var(--cc-green-500);
   --input-placeholder: #858c87;
-
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
   --shadow-md: 0 4px 14px rgb(0 0 0 / 0.35);
   --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.45);
