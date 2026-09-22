@@ -1,13 +1,25 @@
+import { requisitar, obterSessao, exigirSessao } from '../../services/api'
+
 export async function buscarDashboardProfessor() {
+  exigirSessao();
+  const sessao = obterSessao();
+  
+  let dadosTurmas = { total_classrooms: 0, total_students: 0, classrooms: [] };
+  try {
+    dadosTurmas = await requisitar('/classrooms/dashboard');
+  } catch (error) {
+    console.error('Falha ao buscar dados do dashboard:', error);
+  }
+
   return {
     professor: {
-      id: 1,
-      nome: 'André'
+      id: sessao?.user?.id || 1,
+      nome: sessao?.user?.full_name || 'Professor'
     },
 
     indicadores: {
-      salasAtivas: 4,
-      totalAlunos: 108,
+      salasAtivas: dadosTurmas.total_classrooms,
+      totalAlunos: dadosTurmas.total_students,
       correcoesPendentes: 25,
       entregasHoje: 27
     },
@@ -27,44 +39,15 @@ export async function buscarDashboardProfessor() {
      * - já ordenadas da mais recentemente acessada para a menos recente;
      * - o componente não deve ordenar nem limitar esta lista.
      */
-    salasRecentes: [
-      {
-        id: 1,
-        codigo: 'CC.01',
-        nome: 'Estrutura de Dados',
-        descricao: 'Grafos, árvores e algoritmos',
-        alunos: 28,
-        atividadesPendentes: 4,
-        href: '/sala.html'
-      },
-      {
-        id: 2,
-        codigo: 'CC.02',
-        nome: 'Programação Orientada a Objetos',
-        descricao: 'Classes, objetos, herança e polimorfismo',
-        alunos: 31,
-        atividadesPendentes: 5,
-        href: '/sala.html'
-      },
-      {
-        id: 3,
-        codigo: 'CC.03',
-        nome: 'Algoritmos',
-        descricao: 'Fundamentos de lógica e programação',
-        alunos: 25,
-        atividadesPendentes: 3,
-        href: '/sala.html'
-      },
-      {
-        id: 4,
-        codigo: 'CC.04',
-        nome: 'Lógica de Programação',
-        descricao: 'Introdução à resolução de problemas com código',
-        alunos: 24,
-        atividadesPendentes: 2,
-        href: '/sala.html'
-      }
-    ],
+    salasRecentes: dadosTurmas.classrooms.slice(0, 4).map(c => ({
+      id: c.id,
+      codigo: 'CC.' + c.id.substring(0, 4).toUpperCase(),
+      nome: c.name,
+      descricao: c.description || 'Sem descrição',
+      alunos: c.student_count,
+      atividadesPendentes: 0,
+      href: '/sala.html'
+    })),
 
     correcoesPendentes: [
       {
