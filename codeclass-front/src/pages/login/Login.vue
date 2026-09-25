@@ -37,7 +37,7 @@ async function login() {
   }
 }
 </script>
-<!-- teste -->
+
 <template>
   <div class="login-container">
     <div class="login-box">
